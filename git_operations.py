@@ -2,9 +2,9 @@ from __future__ import division
 
 import os
 import subprocess
-import sys
 import mimetypes
 
+from file_operations import *
 
 def get_all_authors_commits(git_repo,all_branches=False):
     try:

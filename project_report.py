@@ -9,7 +9,6 @@
 
 import sys
 
-from file_operations import *
 from git_operations import *
 
 
