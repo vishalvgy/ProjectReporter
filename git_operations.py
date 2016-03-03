@@ -95,7 +95,11 @@ def get_all_authors_contribution_to_file(file_path,authors):
 
                 if total_lines and author_lines:
                     contribution =  (author_lines / total_lines ) * 100
-                    file_contribution[author] = (float(100) if (contribution >= 100 ) else contribution) 
+                    if int(contribution) >= 100:
+                        file_contribution = {}
+                        file_contribution[author] = float(100)
+                        return file_contribution
+                    file_contribution[author] = (float(100) if (contribution >= 100 ) else contribution)
 
     except Exception, ex:
         print "Exception in get_all_authors_contribution_to_file() :",ex
