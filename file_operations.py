@@ -44,18 +44,14 @@ def count_text_lines(stream):
 
 def get_lines_in_a_file(file_path):
     try:
-        cmd = ["wc","-l",file_path]
-        p = subprocess.Popen(cmd,stdout=subprocess.PIPE)
-        lines = 0
-        while True:
-            out = p.stdout.readline()
-            if not out:
-                break
+        i = 0
+        l = 0
+        with open(file_path) as f:
+            for i, l in enumerate(f):
+                pass
 
-            if int(out.split()[0]) > lines:
-                lines = int(out.split()[0])
+        return i + 1
+
     except Exception, ex:
         print "Exception get_lines_in_a_file() :%s",ex
-
-    return lines
 
